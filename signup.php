@@ -60,28 +60,8 @@ session_start();
 			<label>Female</label><br>
 			<br>
 			<label>Phone Number</label><br>
-			<input type="text" name="phone"><br><br>
-			<label>Select your vaccine</label><br>
-			<select name = "vaccine">
-				<option value="covid">Covid 19 vaccine</option>
-				<option value="mmr">MMR vaccine</option>
-				<option value="hepatitis">Hepatitis B vaccine</option>
-				<option value="hpv">HPV vaccine</option>
-				<option value="varicella">Varicella vaccine</option>
-			</select>
-			<br><br>
-			<label>Date</label><br>
-			<input type="date" name="date"><br><br>
-			<label>Time</label><br>
-			<select name = "time">
-				<option value="10to11">10am - 11am</option>
-				<option value="11to12">11am - 12pm</option>
-				<option value="1to2">1pm - 2pm</option>
-				<option value="2to3">2pm - 3pm</option>
-				<option value="3to4">3pm - 4pm</option>
-				<option value="4to5">4pm - 5pm</option>
-			</select>
-			<br><br>
+			<input type="number" name="phone"><br>
+			<br>
 			<button class="btn btn-secondary" type="submit" >Submit</button><br>
 			<a href="login.php">Login</a>
 		</form>
