@@ -1,4 +1,34 @@
 <?php
+session_start();
+
+	include("connection.php");
+	include("functions.php");
+
+	if($_SERVER['REQUEST_METHOD'] == "POST")
+	{
+		$user_id = $_POST['user_id'];
+		$vaccine = $_POST['vaccine'];
+		$date = $_POST['date'];
+		$location = $_POST['location'];
+		$time = $_POST['time'];
+
+		if(isset($_POST['submit']))
+		{
+			$booking_id = random_num(20);
+			$query = "insert into booking (booking_id,user_id,vaccine,date,location,time) values ('$booking_id','$user_id','$vaccine','$date','$location','$time')";
+			$query_run = mysqli_query($con,$query);
+			if($query_run)
+			{
+				echo "Booking Confirmed";
+				header("Location: index.php");
+			}
+			else
+			{
+				echo"Booking failed";
+			}
+		}
+	}
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -16,6 +46,8 @@
 	<br>
 	<div class="container-lg">
 		<form method="POST">
+			<label>User ID</label><br>
+			<input type="number" name="user_id"><br><br>
 			<label>Select your vaccine</label><br>
 				<select name = "vaccine">
 					<option value="covid">Covid 19 vaccine</option>
@@ -45,6 +77,8 @@
 					<option value="3to4">3pm - 4pm</option>
 					<option value="4to5">4pm - 5pm</option>
 				</select>
+				<br>
+				<button class="btn btn-secondary" type="submit" name = "submit" >Submit</button><br>
 		</form>
 	</div>
 	<footer class="bg-light text-center text-lg-start">

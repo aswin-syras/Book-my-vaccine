@@ -9,15 +9,13 @@ session_start();
 		$user_name = $_POST['user_name'];
 		$password = $_POST['password'];
 		$email = $_POST['email'];
+		$gender = $_POST['gender'];
 		$phone = $_POST['phone'];
-		$password = $_POST['password'];
-
 
 		if(!empty($user_name) && !empty($password) && !is_numeric($user_name))
 		{
 			$user_id = random_num(20);
-			$query = "insert into users (user_id,user_name,password) values ('$user_id',
-			'$user_name','$password')";
+			$query = "insert into users (user_id,user_name,password,email,gender,phone) values ('$user_id','$user_name','$password','$email','$gender','$phone')";
 			mysqli_query($con,$query);
 			header("Location: login.php");
 		}
@@ -58,6 +56,8 @@ session_start();
 			<label>Male</label><br>
 			<input type="radio" name="gender" value="female">
 			<label>Female</label><br>
+			<input type="radio" name="gender" value="other">
+			<label>Other</label><br>
 			<br>
 			<label>Phone Number</label><br>
 			<input type="number" name="phone"><br>
