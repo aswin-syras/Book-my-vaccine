@@ -44,9 +44,12 @@ session_start();
 	  <a class="navbar-brand" href="#">Book my Vaccine</a>
 	</nav>
 	<br>
+	<?php
+	echo $_SESSION['user_id'];
+	?>
 	<div class="container-lg">
 		<form method="POST">
-			<label>User ID</label><br>
+			<label>Enter the User Id</label><br>
 			<input type="number" name="user_id"><br><br>
 			<label>Select your vaccine</label><br>
 				<select name = "vaccine">

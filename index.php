@@ -5,7 +5,6 @@ session_start();
 	include("functions.php");
 	
 	$user_data = check_login($con);
-	
 ?>
 <!DOCTYPE html>
 <html>
@@ -16,10 +15,25 @@ session_start();
 	<link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.css">
 </head>
 <body>
-	<a href="logout.php">Logout</a>
-	<h1>This is the index</h1>
-	<br>
-	Hello, username
+	<?php 
+		$query ="select user_name,gender,email,phone,vaccine,location,time from users u1 inner join booking b1 on u1.user_id = b1.user_id limit 1";
+		$result = mysqli_query($con,$query);
+			echo "<table border='2'>";
+			echo "<th><td>Username</td><td>gender</td><td>email</td><td>phone</td><td>vaccine</td><td>location</td><td>time</td></tr>";
+			while($row = mysqli_fetch_assoc($result))
+			{
+				echo "<tr>";
+				echo "<td>" .$row['user_name']. "</td>";
+				echo "<td>".$row['gender']."</td>";
+				echo "<td>".$row['email']."</td>";
+				echo "<td>".$row['phone']."</td>";
+				echo "<td>".$row['vaccine']."</td>";
+				echo "<td>".$row['location']."</td>";
+				echo "<td>".$row['time']."</td>";
+				echo "</tr>";
+			}
+			echo "</table>";
+	?>
 	<script type="text/javascript" src="bootstrap/js/bootstrap.js"></script>
 </body>
 </html>
