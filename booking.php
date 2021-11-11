@@ -45,6 +45,7 @@ session_start();
 	</nav>
 	<br>
 	<?php
+	echo "User Id: ";
 	echo $_SESSION['user_id'];
 	?>
 	<div class="container-lg">

@@ -12,12 +12,27 @@ session_start();
 		$gender = $_POST['gender'];
 		$phone = $_POST['phone'];
 
+
 		if(!empty($user_name) && !empty($password) && !is_numeric($user_name))
 		{
+			$sql="select * from users where (email='$email');";
+	        $res=mysqli_query($con,$sql);
+	        if (mysqli_num_rows($res) > 0) {
+	        // output data of each row
+	        $row = mysqli_fetch_assoc($res);
+	        if($email==$row['email']) // change it to just else
+	        {
+	            echo "Email already exists";
+	        }
+	        else{
+	            echo "alright"; // don't put it here
+	        }
+	    }
 			$user_id = random_num(20);
 			$query = "insert into users (user_id,user_name,password,email,gender,phone) values ('$user_id','$user_name','$password','$email','$gender','$phone')";
 			mysqli_query($con,$query);
-			header("Location: login.php");
+			echo "Registered successfully";
+				
 		}
 		else
 		{
