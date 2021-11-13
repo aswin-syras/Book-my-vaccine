@@ -36,6 +36,7 @@ session_start();
 			echo "</table>";
 			echo "Booking Confirmed";
 	?>
+	<a href="logout.php">Logout</a>
 	<script type="text/javascript" src="bootstrap/js/bootstrap.js"></script>
 </body>
 </html>

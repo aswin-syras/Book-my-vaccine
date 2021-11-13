@@ -55,7 +55,7 @@ session_start();
 			<label>Select your vaccine</label><br>
 				<select name = "vaccine">
 					<option value="covid">Covid 19 vaccine</option>
-					<option value="mmr">MMR vaccine</option>
+					<option value="MMR">MMR vaccine</option>
 					<option value="hepatitis">Hepatitis B vaccine</option>
 					<option value="hpv">HPV vaccine</option>
 					<option value="varicella">Varicella vaccine</option>
@@ -68,18 +68,18 @@ session_start();
 					<option value="yorkmills">861 yorkmills road</option>
 					<option value="pharmacy">283 pharmacy avenue</option>
 					<option value="glenworth">2 glenworth road</option>
-					<option value="htc">Scarborough town center</option>
-					<option value="denette">42 Denette drive</option>
+					<option value="stc">Scarborough town center</option>
+					<option value="denette drive">42 Denette drive</option>
 				</select>
 				<br><br>
 				<label>Time</label><br>
 				<select name = "time">
-					<option value="10to11">10am - 11am</option>
-					<option value="11to12">11am - 12pm</option>
-					<option value="1to2">1pm - 2pm</option>
-					<option value="2to3">2pm - 3pm</option>
-					<option value="3to4">3pm - 4pm</option>
-					<option value="4to5">4pm - 5pm</option>
+					<option value="10am to 11am">10am - 11am</option>
+					<option value="11am to 12pm">11am - 12pm</option>
+					<option value="1pm to 2pm">1pm - 2pm</option>
+					<option value="2pm to 3pm">2pm - 3pm</option>
+					<option value="3pm to 4pm">3pm - 4pm</option>
+					<option value="4pm to 5pm">4pm - 5pm</option>
 				</select>
 				<br>
 				<button class="btn btn-secondary" type="submit" name = "submit" >Submit</button><br>

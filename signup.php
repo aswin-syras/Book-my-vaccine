@@ -77,7 +77,7 @@ session_start();
 			<label>Phone Number</label><br>
 			<input type="number" name="phone"><br>
 			<br>
-			<button class="btn btn-secondary" type="submit" >Submit</button><br>
+			<button class="btn btn-secondary" type="submit" >Register</button><br>
 			<a href="login.php">Login</a>
 		</form>
 		<br><br>
