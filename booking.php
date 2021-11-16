@@ -20,7 +20,7 @@ session_start();
 			if($query_run)
 			{
 				echo "Booking Confirmed";
-				header("Location: index.php");
+				header("Location: view.php");
 			}
 			else
 			{
@@ -81,6 +81,7 @@ session_start();
 					<option value="3pm to 4pm">3pm - 4pm</option>
 					<option value="4pm to 5pm">4pm - 5pm</option>
 				</select>
+				<br>
 				<br>
 				<button class="btn btn-secondary" type="submit" name = "submit" >Submit</button><br>
 		</form>

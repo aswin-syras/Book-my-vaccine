@@ -27,7 +27,21 @@ session_start();
 						if($user_data['password'] === $password)
 						{
 							$_SESSION['user_id'] = $user_data['user_id'];
-							header("Location: booking.php");
+							
+							$user_id=$_SESSION['user_id'];
+							//echo $user_id;
+							
+							$query1 = "select * from booking where user_id= '$user_id'";
+							$res = mysqli_query($con,$query1);
+							if($res && mysqli_num_rows($res) > 0)
+								{
+									header("Location: view.php");
+								}
+							else 
+								{
+									header("Location: booking.php");
+								}
+							
 							die;
 						}
 					}
