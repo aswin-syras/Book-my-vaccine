@@ -56,16 +56,20 @@ session_start();
 	  <a class="navbar-brand" href="#">Book my Vaccine</a>
 	</nav>
 	<br>
+	<div style="float: right;">
+				<h3 style="font-family: serif;">Make your life secure...</h3>
+				<img src="images/vaccine.png" style="width:100%;height:100%">
+			</div>
 	<div class="container-lg">
 		<form method="post">
 			<h2>Register</h2>
 			<br>
 			<label>Username</label><br>
-			<input type="text" name="user_name"><br><br>
+			<input type="text" name="user_name" required><br><br>
 			<label>Password</label><br>
-			<input type="password" name="password"><br><br>
+			<input type="password" name="password" required><br><br>
 			<label>Email</label><br>
-			<input type="text" name="email"><br><br>
+			<input type="text" name="email" required><br><br>
 			<label>Gender</label><br>
 			<input type="radio" name="gender" value="male">
 			<label>Male</label><br>
@@ -75,7 +79,7 @@ session_start();
 			<label>Other</label><br>
 			<br>
 			<label>Phone Number</label><br>
-			<input type="number" name="phone"><br>
+			<input type="number" name="phone" required><br>
 			<br>
 			<button class="btn btn-secondary" type="submit" >Register</button><br>
 			<a href="login.php">Login</a>

@@ -1,3 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>View</title>
+	<link rel="stylesheet" type="text/css" href="css/index.css">
+	<link rel="stylesheet" type="text/css" href="css/view.css">
+
+</head>
+<body>
+<h1>Booking Status</h1>
 <?php
 session_start();
 
@@ -25,5 +37,22 @@ session_start();
 			echo "Booking Confirmed";
 
 ?>
+
+<footer class="bg-light text-center text-lg-start">
+		  <!-- Copyright -->
+		  <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+		    Health and Service
+		    <a class="text-dark" href="#">Stay safe</a>
+		  </div>
+		  <!-- Copyright -->
+		</footer>
+	<script type="text/javascript" src="bootstrap/js/bootstrap.js"></script>
+	</div>
+
+</body>
+</html>
+
 <br>
 	<a href="logout.php">Logout</a>
+<br><br>
+		
