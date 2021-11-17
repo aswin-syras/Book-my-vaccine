@@ -39,7 +39,6 @@ session_start();
 	<link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.css">
 	<link rel="stylesheet" type="text/css" href="css/booking.css">
 </head>
-<body>
 	<nav class="navbar navbar-dark bg-secondary">
 	  <a class="navbar-brand" href="#">Book my Vaccine</a>
 	</nav>
@@ -48,6 +47,10 @@ session_start();
 	echo "User Id: ";
 	echo $_SESSION['user_id'];
 	?>
+	<div style="float: right;">
+				<h3 style="font-family: serif;">Vaccinate your family.. stay safe</h3>
+				<img src="images/booking.png" style="width:90%;height:90%">
+	</div>
 	<div class="container-lg">
 		<form method="POST">
 			<label>Enter the User Id</label><br>

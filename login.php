@@ -90,7 +90,7 @@ session_start();
 	<br><br>
 		<footer class="bg-light text-center text-lg-start">
 		  <!-- Copyright -->
-		  <div style="align: "text-center";class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+		  <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
 		    Health and Service
 		    <a class="text-dark" href="#">Stay safe</a>
 		  </div>
