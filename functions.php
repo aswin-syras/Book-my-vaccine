@@ -17,7 +17,7 @@ function check_login($con)
 	die;
 }
 
-function random_num($length)
+/*function random_num($length)
 {
 	$text = "";
 	if($length < 5 )
@@ -30,4 +30,4 @@ function random_num($length)
 		$text .= rand(0,9);
 	}
 	return $text;
-}
+}*/

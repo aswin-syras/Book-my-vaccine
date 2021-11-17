@@ -28,8 +28,9 @@ session_start();
 	            echo "alright"; // don't put it here
 	        }
 	    }
-			$user_id = random_num(20);
-			$query = "insert into users (user_id,user_name,password,email,gender,phone) values ('$user_id','$user_name','$password','$email','$gender','$phone')";
+			//$user_id = random_num(10);
+			$query = "insert into users (user_name,password,email,gender,phone) values ('$user_name','$password','$email','$gender','$phone')";
+			echo $query;
 			mysqli_query($con,$query);
 			echo "Registered successfully";
 				

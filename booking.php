@@ -14,8 +14,9 @@ session_start();
 
 		if(isset($_POST['submit']))
 		{
-			$booking_id = random_num(20);
-			$query = "insert into booking (booking_id,user_id,vaccine,date,location,time) values ('$booking_id','$user_id','$vaccine','$date','$location','$time')";
+			//$booking_id = random_num(10);
+			$query = "insert into booking (user_id,vaccine,date,location,time) values ('$user_id','$vaccine','$date','$location','$time')";
+			echo $query;
 			$query_run = mysqli_query($con,$query);
 			if($query_run)
 			{
