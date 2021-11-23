@@ -6,41 +6,22 @@ session_start();
 
 	if($_SERVER['REQUEST_METHOD'] == "POST")
 	{
-		$user_name = $_POST['user_name'];
+		$full_name = $_POST['full_name'];
 		$password = $_POST['password'];
 		$email = $_POST['email'];
 		$phone = $_POST['phone'];
 		$skills_years = $_POST['skills_years'];
 		$status = $_POST['status'];
-		$availability = $_POST['availability'];
+		$availability = $_POST['Availability'];
 		$resume = $_POST['resume'];
 
-		if(!empty($user_name) && !empty($password) && !is_numeric($user_name))
-		{
-			$sql="select * from users where (email='$email');";
-	        $res=mysqli_query($con,$sql);
-	        if (mysqli_num_rows($res) > 0) {
-	        // output data of each row
-	        $row = mysqli_fetch_assoc($res);
-	        if($email==$row['email']) // change it to just else
-	        {
-	            echo "Email already exists";
-	        }
-	        else{
-	            echo "alright"; // don't put it here
-	        }
-	    }
-			//$user_id = random_num(10);
-			$query = "insert into users (user_name,password,email,phone,skills_years,status,availability,resume) values ('$user_name','$password','$email',$phone',$skills_years,$status,$availability,$resume)";
+		
+			$query = "insert into users (full_name,password,email,phone,skills_years,status,availability,resume) values ('$full_name','$password','$email','$phone','$skills_years','$status','$availability','$resume')";
+			//echo "$query";
 			mysqli_query($con,$query);
 			echo "Registered successfully";
 				
-		}
-		else
-		{
-			echo "please enter valid informations";
-		}
-
+		
 
 	}
 
@@ -53,7 +34,13 @@ session_start();
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.css">
+	<link rel="stylesheet" type="text/css" href="css/index.css">
 	<title>Registration page</title>
+	<style>
+	body{
+		background-image: url('images/signup.jpg');
+	}
+	</style>
 </head>
 <body>
 	<nav class="navbar navbar-dark bg-secondary">
@@ -64,8 +51,8 @@ session_start();
 		<form method="post">
 			<h2>Register</h2>
 			<br>
-			<label>Username</label><br>
-			<input type="text" name="user_name" required><br><br>
+			<label>Full Name</label><br>
+			<input type="text" name="full_name" required><br><br>
 			<label>Password</label><br>
 			<input type="password" name="password" required><br><br>
 			<label>Email</label><br>
@@ -91,9 +78,18 @@ session_start();
 			</select>
 			<br>
 			<br>
+			<label>Availability : </label>
+			<br>
+			<select name ="Availability">
+				<option value="parttime">Part Time</option>
+				<option value="fulltime">Full Time</option>
+
+			</select>
+			<br>
+			<br>
 			<label>Upload your resume</label>
 			<br>
-			<input type="file" name="file" id="file">
+			<input type="file" name="resume" id="file">
 			<br>
 			<br>
 			<button class="btn btn-secondary" type="submit" >Register</button><br>

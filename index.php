@@ -11,10 +11,10 @@ session_start();
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Book my Vaccine</title>
+	<title>Talent Portal</title>
 	<link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.css">
 	<link rel="stylesheet" type="text/css" href="css/index.css">
-	<link rel="stylesheet" type="text/css" href="css/booking.css">
+	<link rel="stylesheet" type="text/css" href="css/jobs.css">
 </head>
 <body>
 	<h1>List of all the bookings</h1>

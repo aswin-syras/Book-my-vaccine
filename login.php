@@ -6,17 +6,17 @@ session_start();
 	
 	if($_SERVER['REQUEST_METHOD'] == "POST")
 	{
-		$user_name = $_POST['user_name'];
+		$email = $_POST['email'];
 		$password = $_POST['password'];
 
 
-		if(!empty($user_name) && !empty($password) && !is_numeric($user_name))
+		if(!empty($email) && !empty($password) && !is_numeric($email))
 		{
-			if($user_name == "admin" && $password = "password"){
+			if($email == "admin@gmail.com" && $password = "password"){
 				header("Location: index.php");
 			}
 			else{
-				$query = " select * from users where user_name = '$user_name' limit 1";
+				$query = " select * from users where email = '$email' limit 1";
 				$result = mysqli_query($con,$query);
 
 				if($result)
@@ -26,21 +26,12 @@ session_start();
 						$user_data = mysqli_fetch_assoc($result);
 						if($user_data['password'] === $password)
 						{
-							$_SESSION['user_id'] = $user_data['user_id'];
+							$_SESSION['email'] = $user_data['email'];
 							
-							$user_id=$_SESSION['user_id'];
-							//echo $user_id;
+							$user_id=$_SESSION['email'];
 							
-							$query1 = "select * from booking where user_id= '$user_id'";
-							$res = mysqli_query($con,$query1);
-							if($res && mysqli_num_rows($res) > 0)
-								{
 									header("Location: view.php");
-								}
-							else 
-								{
-									header("Location: booking.php");
-								}
+							
 							
 							die;
 						}
@@ -62,13 +53,13 @@ session_start();
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.css">
-	<link rel="stylesheet" type="text/css" href="css/booking.css">
+	<link rel="stylesheet" type="text/css" href="css/jobs.css">
 
 	<title>Login page</title>
 </head>
 <body>
 	<nav class="navbar navbar-dark bg-secondary">
-	  <a class="navbar-brand" href="#">Book my Vaccine</a>
+	  <a class="navbar-brand" href="#">Talent Pool </a>
 	</nav>
 	<br>
 	<div style="float: right;">
@@ -79,8 +70,8 @@ session_start();
 		<form method="post">
 			<h2>Login</h2>
 			<br>
-			<label>Username</label><br>
-			<input type="text" name="user_name" required><br><br>
+			<label>Email Id</label><br>
+			<input type="text" name="email" required><br><br>
 			<label>Password</label><br>
 			<input type="password" name="password" required><br><br>
 			<button class="btn btn-secondary" type="submit" >Login</button><br>
