@@ -17,6 +17,8 @@
 	  <a class="navbar-brand" href="#">Talent pool portal</a>
 	</nav>
 	<br>
+	<a class="button" href="emp_signup.php">Sign up as Employer</a><br>
+	<br>
 	<a class="button" href="signup.php">Sign up as Job seeker</a><br>
 	<a style="margin-left: 7%;" href="view.php">cancel</a>
 </body>

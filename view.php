@@ -4,11 +4,16 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>View</title>
+	<link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.css">
 	<link rel="stylesheet" type="text/css" href="css/index.css">
 	<link rel="stylesheet" type="text/css" href="css/view.css">
-
+	<link rel="stylesheet" type="text/css" href="css/home.css">
 </head>
 <body>
+	<nav class="navbar navbar-dark bg-secondary">
+	  <a class="navbar-brand" href="#"> Talent Pool Portal</a>
+	  <a class="button" href="home.php"> Sign Up</a>
+	</nav>
 <h1>Job Status</h1>
 <?php
 session_start();
@@ -50,7 +55,4 @@ session_start();
 </body>
 </html>
 
-<br>
-	<a href="logout.php">Logout</a>
-<br><br>
 		
