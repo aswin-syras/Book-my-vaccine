@@ -9,9 +9,11 @@ session_start();
 		$user_name = $_POST['user_name'];
 		$password = $_POST['password'];
 		$email = $_POST['email'];
-		$gender = $_POST['gender'];
 		$phone = $_POST['phone'];
-
+		$skills_years = $_POST['skills_years'];
+		$status = $_POST['status'];
+		$availability = $_POST['availability'];
+		$resume = $_POST['resume'];
 
 		if(!empty($user_name) && !empty($password) && !is_numeric($user_name))
 		{
@@ -29,8 +31,7 @@ session_start();
 	        }
 	    }
 			//$user_id = random_num(10);
-			$query = "insert into users (user_name,password,email,gender,phone) values ('$user_name','$password','$email','$gender','$phone')";
-			echo $query;
+			$query = "insert into users (user_name,password,email,phone,skills_years,status,availability,resume) values ('$user_name','$password','$email',$phone',$skills_years,$status,$availability,$resume)";
 			mysqli_query($con,$query);
 			echo "Registered successfully";
 				
@@ -39,6 +40,8 @@ session_start();
 		{
 			echo "please enter valid informations";
 		}
+
+
 	}
 
 	
@@ -54,13 +57,9 @@ session_start();
 </head>
 <body>
 	<nav class="navbar navbar-dark bg-secondary">
-	  <a class="navbar-brand" href="#">Book my Vaccine</a>
+	  <a class="navbar-brand" href="#"> Talent Pool Portal</a>
 	</nav>
 	<br>
-	<div style="float: right;">
-				<h3 style="font-family: serif;">Make your life secure...</h3>
-				<img src="images/vaccine.png" style="width:100%;height:100%">
-			</div>
 	<div class="container-lg">
 		<form method="post">
 			<h2>Register</h2>
@@ -70,17 +69,32 @@ session_start();
 			<label>Password</label><br>
 			<input type="password" name="password" required><br><br>
 			<label>Email</label><br>
-			<input type="text" name="email" required><br><br>
-			<label>Gender</label><br>
-			<input type="radio" name="gender" value="male">
-			<label>Male</label><br>
-			<input type="radio" name="gender" value="female">
-			<label>Female</label><br>
-			<input type="radio" name="gender" value="other">
-			<label>Other</label><br>
+			<input type="text" name="email" required><br>
 			<br>
 			<label>Phone Number</label><br>
 			<input type="number" name="phone" required><br>
+			<br>
+			<label>Top three Skills & number of years’ experience </label><br>
+			<select name="skills_years">
+				<option value="Java - 3 years">Java - 3 years</option>
+				<option value="Python - 2 years">Python - 2 years</option>
+				<option value="React - 3 years">React - 3 years</option>
+			</select>
+			<br>
+			<br>
+			<label>Status</label>
+			<br>
+			<select name="status">
+				<option value="International Student">International Student</option>
+				<option value="Graduate">Graduate</option>
+				<option value="Student">Student</option>
+			</select>
+			<br>
+			<br>
+			<label>Upload your resume</label>
+			<br>
+			<input type="file" name="file" id="file">
+			<br>
 			<br>
 			<button class="btn btn-secondary" type="submit" >Register</button><br>
 			<a href="login.php">Login</a>
@@ -89,7 +103,7 @@ session_start();
 		<footer class="bg-light text-center text-lg-start">
 		  <!-- Copyright -->
 		  <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
-		    Health and Service
+		    Talent Pool Portal
 		    <a class="text-dark" href="#">Stay safe</a>
 		  </div>
 		  <!-- Copyright -->
