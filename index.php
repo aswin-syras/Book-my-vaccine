@@ -1,10 +1,11 @@
 <?php
 session_start();
-
+	
 	include("connection.php");
 	include("functions.php");
+
 	
-	$user_data = check_login($con);
+	//$user_data = check_login($con);
 ?>
 <!DOCTYPE html>
 <html>
@@ -15,25 +16,33 @@ session_start();
 	<link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.css">
 	<link rel="stylesheet" type="text/css" href="css/index.css">
 	<link rel="stylesheet" type="text/css" href="css/jobs.css">
+<style>
+	body{
+		background-image: url('images/signup.jpg');
+	}
+</style>
 </head>
 <body>
-	<h1>List of all the bookings</h1>
+	<h1>List of all the submissions</h1>
 	<?php 
-		$query ="select user_name,gender,email,phone,vaccine,location,time from users u1 inner join booking b1 on u1.user_id = b1.user_id";
+	
+		$query ="select u1.id,d1.id as applicationId,u1.full_name,job_title,job_description,company,resume from users u1 inner join display d1 where
+		u1.email = d1.email";
 		$result = mysqli_query($con,$query);
 			echo "<table border='2'>";
-			echo "<tr><th>Username</th><th>gender</th><th>email</th><th>phone</th><th>vaccine</th><th>location</th><th>time</th></tr>";
+			echo "<tr><th>Full Name</th><th>Job Title</th><th>Job Description</th><th>Company</th></tr>";
 			while($row = mysqli_fetch_assoc($result))
 			{
 				echo "<tr>";
-				echo "<td>".$row['user_name']."</td>";
-				echo "<td>".$row['gender']."</td>";
-				echo "<td>".$row['email']."</td>";
-				echo "<td>".$row['phone']."</td>";
-				echo "<td>".$row['vaccine']."</td>";
-				echo "<td>".$row['location']."</td>";
-				echo "<td>".$row['time']."</td>";
-				echo "</tr>";
+				$_SESSION['AP_id']=$row['applicationId'];
+				
+				echo "<td>".$row['full_name']."</td>";
+				echo "<td>".$row['job_title']."</td>";
+				echo "<td>".$row['job_description']."</td>";
+				echo "<td>".$row['company']."</td>";
+ 				echo "<td>";?> <a href="downloads.php?id=<?php echo $row['id'];?>">Download</a><?php echo "</td>";
+				echo "<td>";?> <a href="edituser.php?applicationId=<?php echo $row['applicationId'];?>">Edit</a><?php echo"</td>";
+				echo "<td>";?> <a href="delete.php?applicationId=<?php echo $row['applicationId'];?>">Delete</a><?php echo"</td>";
 			}
 			echo "</table>";
 			echo "Booking Confirmed";

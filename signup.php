@@ -13,17 +13,27 @@ session_start();
 		$skills_years = $_POST['skills_years'];
 		$status = $_POST['status'];
 		$availability = $_POST['Availability'];
-		$resume = $_POST['resume'];
 
-		
-			$query = "insert into users (full_name,password,email,phone,skills_years,status,availability,resume) values ('$full_name','$password','$email','$phone','$skills_years','$status','$availability','$resume')";
+
+		$targetDir = "uploads/";
+		$fileName = basename($_FILES["resume"]["name"]);
+		$targetFilePath = $targetDir . $fileName;
+		$fileType = pathinfo($targetFilePath,PATHINFO_EXTENSION);
+
+		$allowTypes = array('jpg','png','jpeg','gif','pdf');
+    	if(in_array($fileType, $allowTypes))
+    	{
+        // Upload file to server
+        if(move_uploaded_file($_FILES["resume"]["tmp_name"], $targetFilePath)){
+
+		$query = "insert into users (full_name,password,email,phone,skills_years,status,availability,resume) values ('$full_name','$password','$email','$phone','$skills_years','$status','$availability','".$fileName."')";
 			//echo "$query";
 			mysqli_query($con,$query);
-			echo "Registered successfully";
-				
-		
+			echo "Registered successfully";	
+		}
 
 	}
+}
 
 	
 ?>
@@ -48,7 +58,7 @@ session_start();
 	</nav>
 	<br>
 	<div class="container-lg">
-		<form method="post">
+		<form method="post" enctype="multipart/form-data">
 			<h2>Register</h2>
 			<br>
 			<label>Full Name</label><br>

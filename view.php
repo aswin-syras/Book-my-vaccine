@@ -20,8 +20,8 @@ session_start();
 
 	include("connection.php");
 	include("functions.php");
-	
-	$query ="select * from job ";
+		
+		$query ="select * from job ";
 		$result = mysqli_query($con,$query);
 			echo "<table border='2'>";
 			echo "<tr><td>Job Title</td><td>Company</td><td>Job Description</td></tr>";
@@ -29,17 +29,21 @@ session_start();
 			{
 				$_SESSION['job_id'] = $row['id'];
 			 	$job_id=$_SESSION['job_id'] ;
+
 				echo "<tr>";
 				echo "<td>".$row['job_title']."</td>";
 				echo "<td>".$row['company']."</td>";
 				echo "<td>".$row['job_description']."</td>";
-				echo "<td> <a href='view_jobs.php'>View</a>/<a href='#'>Apply</td>";
+				echo "<td> <a href='view_jobs.php'>View</a>/<a href='submit.php'>Apply</td>";
 				echo "</tr>";
 			}
 			echo "</table>";
 			echo "Job Registered";
+			
 
 ?>
+<br>
+<a href="logout.php">Logout</a>
 
 <footer class="bg-light text-center text-lg-start">
 		  <!-- Copyright -->

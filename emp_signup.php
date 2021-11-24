@@ -22,8 +22,20 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Employee Page</title>
+	<link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.css">
+	<link rel="stylesheet" type="text/css" href="css/index.css">
+	<style>
+	body{
+		background-image: url('images/signup.jpg');
+	}
+	</style>
 </head>
 <body>
+	<nav class="navbar navbar-dark bg-secondary">
+	  <a class="navbar-brand" href="#"> Talent Pool Portal</a>
+	</nav>
+	<br>
+	<div class="container-lg">
 	<form method="post">
 	<label>Enter username</label><br>
 	<input type="text" name="username"><br><br>
@@ -31,5 +43,6 @@
 	<input type="password" name="password"><br><br>
 	<button type="submit" name="submit">Sign Up</button>
 	</form>
+</div>
 </body>
 </html>

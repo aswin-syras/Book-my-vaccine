@@ -12,7 +12,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
 
 		if(!empty($username) && !empty($password) && !is_numeric($username))
 		{
-			if($username == "admin@gmail.com" && $password = "password"){
+			if($username == "admin" && $password = "password"){
 				header("Location: index.php");
 			}
 			else{
@@ -52,14 +52,27 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Employee Page</title>
+	<link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.css">
+	<link rel="stylesheet" type="text/css" href="css/index.css">
+	<style>
+	body{
+		background-image: url('images/signup.jpg');
+	}
+	</style>
 </head>
 <body>
+	<nav class="navbar navbar-dark bg-secondary">
+	  <a class="navbar-brand" href="#"> Talent Pool Portal</a>
+	</nav>
+	<br>
+	<div class="container-lg">
 	<form method="post">
 	<label>Enter username</label><br>
 	<input type="text" name="username"><br><br>
 	<label>Password</label><br>
 	<input type="text" name="password"><br><br>
 	<button type="submit" name="submit">Login</button>
+</div>
 </form>
 </body>
 </html>

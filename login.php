@@ -12,7 +12,8 @@ session_start();
 
 		if(!empty($email) && !empty($password) && !is_numeric($email))
 		{
-			if($email == "admin@gmail.com" && $password = "password"){
+			if($email == "admin" && $password == "password"){
+				//$_SESSION['email'] == $email;
 				header("Location: index.php");
 			}
 			else{
@@ -54,7 +55,11 @@ session_start();
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.css">
 	<link rel="stylesheet" type="text/css" href="css/jobs.css">
-
+<style>
+	body{
+		background-image: url('images/signup.jpg');
+	}
+	</style>
 	<title>Login page</title>
 </head>
 <body>
@@ -62,10 +67,7 @@ session_start();
 	  <a class="navbar-brand" href="#">Talent Pool </a>
 	</nav>
 	<br>
-	<div style="float: right;">
-				<h3 style="font-family: serif;">"You can't see it, but I'm wearing the biggest smile."</h3>
-				<img src="images/nurse.png" style="width:90%;height:90%">
-	</div>
+	
 	<div class="container-lg">
 		<form method="post">
 			<h2>Login</h2>
